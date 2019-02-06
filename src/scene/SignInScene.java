@@ -116,17 +116,15 @@ public class SignInScene extends javax.swing.JPanel {
             // Create Profile Window
             SwingUtilities.invokeLater(new Runnable() {
                 public void run() {
-                    SignUpScene sign = new SignUpScene();
+                    ProfileScene profile = new ProfileScene();
                     JFrame frame = new JFrame();
                     frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-                    frame.getContentPane().add(sign);
+                    frame.getContentPane().add(profile);
                     frame.setResizable(false);
                     frame.setSize(1920, 1080);
                     frame.setLocationRelativeTo(null);
                     frame.setVisible(true);
                 }
-                
-                
             });
         }else{
             Component frame = null;
