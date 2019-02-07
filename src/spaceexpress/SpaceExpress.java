@@ -7,7 +7,7 @@ package spaceexpress;
 
 import javax.swing.JFrame;
 import javax.swing.SwingUtilities;
-import scene.SignInScene;
+import scenes.SignInScene;
 
 
 /**
