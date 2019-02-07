@@ -7,7 +7,7 @@ package scenes;
 
 import java.awt.Component;
 import javax.swing.JOptionPane;
-import spaceexpress.User;
+import controllers.User;
 
 /**
  *

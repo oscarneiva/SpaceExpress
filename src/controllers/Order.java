@@ -3,24 +3,23 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package spaceexpress;
+package controllers;
 
 /**
  *
  * @author oscar neiva
  */
-public class User {
-    
+public class Order {
     // Fields
     private int id;
     private String name;
-    private String email;
-    private String password;
+    private float weight;
     
     // Constructor
-    public User(String e, String psw){
-        this.email = e;
-        this.password = psw;
+    public Order(int i, String n, float w){
+        this.id = i;
+        this.name = n;
+        this.weight = w;
     }
     
     // Access Modifiers
@@ -40,19 +39,14 @@ public class User {
         this.name = n;
     }
     
-    public String getEmail(){
-        return email;
+    public float getWeight(){
+        return weight;
     }
     
-    public void setEmail(String e){
-        this.email = e;
+    public void setWeight(float w){
+        this.weight = w;
     }
     
-    public String getPassword(){
-        return password;
-    }
+    // Other Methods
     
-    public void setPassword(String psw){
-        this.password = psw;
-    }
 }
