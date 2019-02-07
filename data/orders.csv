@@ -1,0 +1,6 @@
+id,customer,items
+001,nasa,[humble,spaceshuttle]
+002,jaxa,[kibo]
+003,csa,[canadarm]
+004,roscosmo,[soyuz,buran]
+005,spacex,[cheese,tesla]

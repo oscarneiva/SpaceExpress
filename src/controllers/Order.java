@@ -12,14 +12,14 @@ package controllers;
 public class Order {
     // Fields
     private int id;
-    private String name;
-    private float weight;
+    private String customer;
+    private Item[] items;
     
     // Constructor
-    public Order(int i, String n, float w){
+    public Order(int i, String c, Item[] items){
         this.id = i;
-        this.name = n;
-        this.weight = w;
+        this.customer = c;
+        this.items = items;
     }
     
     // Access Modifiers
@@ -31,22 +31,19 @@ public class Order {
         this.id = i;
     }
     
-    public String getName(){
-        return name;
+    public String getCustumer(){
+        return customer;
     }
     
-    public void setName(String n){
-        this.name = n;
+    public void setCustomer(String c){
+        this.customer = c;
     }
     
-    public float getWeight(){
-        return weight;
+    public Item[] getItems(){
+        return items;
     }
     
-    public void setWeight(float w){
-        this.weight = w;
+    public void setItems(int items){
+        this.id = items;
     }
-    
-    // Other Methods
-    
 }
