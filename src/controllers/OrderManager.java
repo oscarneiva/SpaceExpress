@@ -25,6 +25,10 @@ public class OrderManager {
     public OrderManager(){
 
     }
+    
+    public void readOrder(){
+        System.out.println("User reading order...");
+    }
     /*
     public void printResults() throws IOException{
         try (
