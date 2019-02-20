@@ -25,9 +25,9 @@ public class OrderManager {
 
     }
     
-    public void readOrder(){
+    public String readOrder(){
         System.out.println("User reading order...");
-        
+        String data = ""; // To bemoved to the constructor
         String fileName = "./data/orders.csv";
         File file = new File(fileName);
         try{
@@ -35,7 +35,7 @@ public class OrderManager {
             //inputStream.next(); //ignore the first line
             while(inputStream.hasNext()){
                 //Data, contains all the data in the file
-                String data = inputStream.next();
+                data = inputStream.next();
                 //Values, to select specific data from the file
                 String[] values = data.split(",");
                 System.out.println(values[1]);
@@ -44,5 +44,6 @@ public class OrderManager {
         }catch(FileNotFoundException e){
             e.printStackTrace();
         }
+        return data;
     }
 }
