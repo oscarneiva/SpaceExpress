@@ -11,9 +11,6 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.Scanner;
 
-//import org.apache.commons.csv.CSVParser;
-//import org.apache.commons.csv.CSVRecord;
-
 
 /**
  *
@@ -30,9 +27,7 @@ public class OrderManager {
     
     public void readOrder(){
         System.out.println("User reading order...");
-    }
-   
-    public void printTest(){// It works!!!
+        
         String fileName = "./data/orders.csv";
         File file = new File(fileName);
         try{
