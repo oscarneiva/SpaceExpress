@@ -6,12 +6,14 @@
 package controllers;
 
 //import org.apache.commons.csv.CSVFormat;
+
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.util.Scanner;
+
 //import org.apache.commons.csv.CSVParser;
 //import org.apache.commons.csv.CSVRecord;
-import java.io.IOException;
-import java.io.Reader;
-import java.nio.file.Files;
-import java.nio.file.Paths;
+
 
 /**
  *
@@ -19,7 +21,7 @@ import java.nio.file.Paths;
  */
 public class OrderManager {
     // Fields
-    private static final String SAMPLE_CSV_FILE_PATH = "./users.csv";
+    //private static final String SAMPLE_CSV_FILE_PATH = "./users.csv";
     
     // Constructor
     public OrderManager(){
@@ -29,27 +31,23 @@ public class OrderManager {
     public void readOrder(){
         System.out.println("User reading order...");
     }
-    /*
-    public void printResults() throws IOException{
-        try (
-            Reader reader = Files.newBufferedReader(Paths.get(SAMPLE_CSV_FILE_PATH));
-            CSVParser csvParser = new CSVParser(reader, CSVFormat.DEFAULT);
-        ) {
-            for (CSVRecord csvRecord : csvParser) {
-                // Accessing Values by Column Index
-                String name = csvRecord.get(0);
-                String email = csvRecord.get(1);
-                String phone = csvRecord.get(2);
-                String country = csvRecord.get(3);
-
-                System.out.println("Record No - " + csvRecord.getRecordNumber());
-                System.out.println("---------------");
-                System.out.println("Name : " + name);
-                System.out.println("Email : " + email);
-                System.out.println("Phone : " + phone);
-                System.out.println("Country : " + country);
-                System.out.println("---------------\n\n");
+   
+    public void printTest(){// It works!!!
+        String fileName = "./data/orders.csv";
+        File file = new File(fileName);
+        try{
+            Scanner inputStream = new Scanner(file);
+            //inputStream.next(); //ignore the first line
+            while(inputStream.hasNext()){
+                //Data, contains all the data in the file
+                String data = inputStream.next();
+                //Values, to select specific data from the file
+                String[] values = data.split(",");
+                System.out.println(values[1]);
             }
+            inputStream.close();
+        }catch(FileNotFoundException e){
+            e.printStackTrace();
         }
-    }*/
+    }
 }

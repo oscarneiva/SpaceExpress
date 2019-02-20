@@ -5,6 +5,7 @@
  */
 package controllers;
 
+
 /**
  *
  * @author oscar neiva
@@ -46,4 +47,5 @@ public class Order {
     public void setItems(int items){
         this.id = items;
     }
+   
 }
