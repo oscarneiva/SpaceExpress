@@ -10,6 +10,7 @@ package controllers;
  * @author oscar neiva
  */
 public class Item {
+    
     // Fields
     private String name;
     private float weight;
