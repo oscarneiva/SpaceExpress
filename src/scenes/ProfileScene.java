@@ -13,7 +13,8 @@ import controllers.OrderManager;
  */
 public class ProfileScene extends javax.swing.JPanel {
 
-    public OrderManager orderMan;
+    private OrderManager orderMan;
+    private String[] orders;
     
     /**
      * Creates new form ProfileScene
@@ -206,7 +207,10 @@ public class ProfileScene extends javax.swing.JPanel {
 
     private void readButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_readButtonActionPerformed
         orderMan = new OrderManager();
-        orderList.add(orderMan.readOrder());
+        System.out.println(orderMan.getOrdersSize());
+        orders = orderMan.readOrder();
+        for(int i=0; i<orderMan.getOrdersSize(); i++)
+            orderList.add(orders[i]);        
     }//GEN-LAST:event_readButtonActionPerformed
 
 

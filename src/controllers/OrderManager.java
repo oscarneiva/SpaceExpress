@@ -5,8 +5,6 @@
  */
 package controllers;
 
-//import org.apache.commons.csv.CSVFormat;
-
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.Scanner;
@@ -18,32 +16,43 @@ import java.util.Scanner;
  */
 public class OrderManager {
     // Fields
-    //private static final String SAMPLE_CSV_FILE_PATH = "./users.csv";
+    private int ordersSize;
     
     // Constructor
     public OrderManager(){
-
+        ordersSize = 0;
     }
     
-    public String readOrder(){
+    public void countOrders(){
+        ordersSize++;
+    }
+    
+    public int getOrdersSize(){
+        return ordersSize;
+    }
+    
+    public String[] readOrder(){
         System.out.println("User reading order...");
-        String data = ""; // To bemoved to the constructor
+        String data = ""; // To be moved to the constructor
         String fileName = "./data/orders.csv";
         File file = new File(fileName);
+        String[] values = null;
         try{
             Scanner inputStream = new Scanner(file);
-            //inputStream.next(); //ignore the first line
+            inputStream.next(); //ignore the first line
             while(inputStream.hasNext()){
                 //Data, contains all the data in the file
                 data = inputStream.next();
+                countOrders();
                 //Values, to select specific data from the file
-                String[] values = data.split(",");
-                System.out.println(values[1]);
+                values = data.split(",");
+                //System.out.println(values[1]);
             }
             inputStream.close();
         }catch(FileNotFoundException e){
             e.printStackTrace();
         }
-        return data;
+        System.out.println(data);
+        return values;
     }
 }
