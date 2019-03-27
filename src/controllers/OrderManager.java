@@ -52,7 +52,6 @@ public class OrderManager {
         }catch(FileNotFoundException e){
             e.printStackTrace();
         }
-        System.out.println(data);
         return values;
     }
 }

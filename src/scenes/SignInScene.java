@@ -10,7 +10,6 @@ import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.SwingUtilities;
 import static scenes.SignUpScene.usr;
-import controllers.User;
 
 /**
  *

@@ -44,8 +44,8 @@ public class Order {
         return items;
     }
     
-    public void setItems(int items){
-        this.id = items;
+    public void setItems(Item[] i){
+        this.items = i;
     }
    
 }

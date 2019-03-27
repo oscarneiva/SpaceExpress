@@ -19,6 +19,7 @@ public class ProfileScene extends javax.swing.JPanel {
     /**
      * Creates new form ProfileScene
      */
+    
     public ProfileScene() {
         initComponents();
     }
@@ -207,10 +208,12 @@ public class ProfileScene extends javax.swing.JPanel {
 
     private void readButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_readButtonActionPerformed
         orderMan = new OrderManager();
-        System.out.println(orderMan.getOrdersSize());
+        
         orders = orderMan.readOrder();
-        for(int i=0; i<orderMan.getOrdersSize(); i++)
-            orderList.add(orders[i]);        
+        //for(int i=0; i<orderMan.getOrdersSize(); i++){
+            orderList.add(orders[0]);
+            System.out.println(orderMan.getOrdersSize());
+        //}          
     }//GEN-LAST:event_readButtonActionPerformed
 
 
