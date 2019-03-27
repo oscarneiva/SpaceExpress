@@ -207,13 +207,7 @@ public class ProfileScene extends javax.swing.JPanel {
     }//GEN-LAST:event_updateButtonActionPerformed
 
     private void readButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_readButtonActionPerformed
-        orderMan = new OrderManager();
-        
-        orders = orderMan.readOrder();
-        //for(int i=0; i<orderMan.getOrdersSize(); i++){
-            orderList.add(orders[0]);
-            System.out.println(orderMan.getOrdersSize());
-        //}          
+
     }//GEN-LAST:event_readButtonActionPerformed
 
 

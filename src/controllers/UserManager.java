@@ -5,32 +5,31 @@
  */
 package controllers;
 
-
 /**
  *
  * @author oscar neiva
  */
-public class OrderManager {
+public class UserManager {
     // Fields
     
     // Constructor
-    public OrderManager(){
+    public UserManager(){
     }
     
     // CRUD Methods
-    //public void CreatOrder(){
+    public void CreatUser(){
+
+    }
+    
+    //public String[] readUser(){
     
     //}
     
-    //public String[] readOrder(){
-    
-    //}
-    
-    //public String[] UpdateOrder(String[] obj){
+    //public String[] UpdateUser(String[] obj){
         
     //}
     
-    //public void DeleteOrder(String[] obj){
+    //public void DeleteUser(String[] obj){
     
     //}
 }

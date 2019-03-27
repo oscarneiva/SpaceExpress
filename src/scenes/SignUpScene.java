@@ -8,7 +8,6 @@ package scenes;
 import java.awt.Component;
 import javax.swing.JOptionPane;
 import controllers.User;
-import java.util.LinkedList;
 
 /**
  *
@@ -17,7 +16,6 @@ import java.util.LinkedList;
 public class SignUpScene extends javax.swing.JPanel {
     
     public static User usr;
-    public LinkedList<User> usersList = new LinkedList<User>();
     
     /**
      * Creates new form SignUpScene
