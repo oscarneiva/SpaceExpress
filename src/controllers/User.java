@@ -24,7 +24,7 @@ public class User {
         this.password = psw;
     }
     
-    // Access Modifiers
+    // Accessors and Mutators
     public int getId(){
         return id;
     }

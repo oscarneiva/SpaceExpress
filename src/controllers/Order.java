@@ -23,7 +23,7 @@ public class Order {
         this.items = items;
     }
     
-    // Access Modifiers
+    // Accessors and Mutators
     public int getId(){
         return id;
     }

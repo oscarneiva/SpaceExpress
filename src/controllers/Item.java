@@ -21,7 +21,7 @@ public class Item {
         this.weight = w;
     }
     
-    // Access Modifiers
+    // Accessors and Mutators
     public String getName(){
         return name;
     }

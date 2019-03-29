@@ -30,9 +30,7 @@ public class SignUpScene extends javax.swing.JPanel {
      * Creates new form SignUpScene
      */
     public SignUpScene() {
-        directory = System.getProperty("../data/");
-        usersFile = "users.csv";System.out.print("passei");
-        filePath = directory + File.separator + usersFile;System.out.print("passei");
+        filePath = "../data/users.csv";
         try(FileWriter fileWriter = new FileWriter(filePath)) {  
             String fileContent = "This is a sample text.";
             System.out.print("passei");
