@@ -8,6 +8,9 @@ package scenes;
 import java.awt.Component;
 import javax.swing.JOptionPane;
 import controllers.User;
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
 
 /**
  *
@@ -16,14 +19,35 @@ import controllers.User;
 public class SignUpScene extends javax.swing.JPanel {
     
     public static User usr;
+    private String name;
+    private String email;
+    private String password;
+    private String directory;
+    private String usersFile;
+    private String filePath;
     
     /**
      * Creates new form SignUpScene
      */
     public SignUpScene() {
+        directory = System.getProperty("../data/");
+        usersFile = "users.csv";System.out.print("passei");
+        filePath = directory + File.separator + usersFile;System.out.print("passei");
+        try(FileWriter fileWriter = new FileWriter(filePath)) {  
+            String fileContent = "This is a sample text.";
+            System.out.print("passei");
+            fileWriter.write(fileContent);
+        } catch (IOException e) {
+            // exception handling
+        }
+        
+        
         initComponents();
+        name = "";
+        email = "";
+        password = "";
     }
-
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -39,6 +63,7 @@ public class SignUpScene extends javax.swing.JPanel {
         passwordTextField = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
         emailTextField = new javax.swing.JTextField();
+        nameTextField = new javax.swing.JTextField();
 
         cancelButton.setText("Cancel");
 
@@ -74,6 +99,13 @@ public class SignUpScene extends javax.swing.JPanel {
             }
         });
 
+        nameTextField.setText("Name");
+        nameTextField.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                nameTextFieldActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -90,7 +122,8 @@ public class SignUpScene extends javax.swing.JPanel {
                             .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
                                 .addComponent(confirmButton)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(cancelButton)))
+                                .addComponent(cancelButton))
+                            .addComponent(nameTextField, javax.swing.GroupLayout.Alignment.LEADING))
                         .addGap(59, 59, 59)))
                 .addContainerGap(85, Short.MAX_VALUE))
         );
@@ -99,17 +132,19 @@ public class SignUpScene extends javax.swing.JPanel {
             .addGroup(layout.createSequentialGroup()
                 .addGap(56, 56, 56)
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 32, Short.MAX_VALUE)
+                .addComponent(nameTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(emailTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(passwordTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(confirmPasswordTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(confirmButton)
                     .addComponent(cancelButton))
-                .addContainerGap(63, Short.MAX_VALUE))
+                .addGap(32, 32, 32))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -120,9 +155,10 @@ public class SignUpScene extends javax.swing.JPanel {
     private void confirmButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_confirmButtonActionPerformed
 
         if (passwordTextField.getText().equals(confirmPasswordTextField.getText())){
-            String email = emailTextField.getText();
-            String password = passwordTextField.getText();
-            usr = new User(email, password);
+            name = nameTextField.getText();
+            email = emailTextField.getText();
+            password = passwordTextField.getText();
+            usr = new User(name, email, password);
             System.out.println("User with email: " + usr.getEmail() + "; and password: " 
                     + usr.getPassword() + " created.");
         }else{
@@ -139,6 +175,10 @@ public class SignUpScene extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_emailTextFieldActionPerformed
 
+    private void nameTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nameTextFieldActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_nameTextFieldActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton cancelButton;
@@ -146,6 +186,7 @@ public class SignUpScene extends javax.swing.JPanel {
     private javax.swing.JTextField confirmPasswordTextField;
     private javax.swing.JTextField emailTextField;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JTextField nameTextField;
     private javax.swing.JTextField passwordTextField;
     // End of variables declaration//GEN-END:variables
 }

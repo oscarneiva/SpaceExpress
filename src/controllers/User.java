@@ -18,7 +18,8 @@ public class User {
     private String password;
     
     // Constructor
-    public User(String e, String psw){
+    public User(String n, String e, String psw){
+        this.name = n;
         this.email = e;
         this.password = psw;
     }
@@ -55,6 +56,4 @@ public class User {
     public void setPassword(String psw){
         this.password = psw;
     }
-    
-    // Other Methods
 }

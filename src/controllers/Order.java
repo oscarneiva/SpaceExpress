@@ -47,5 +47,4 @@ public class Order {
     public void setItems(Item[] i){
         this.items = i;
     }
-   
 }
