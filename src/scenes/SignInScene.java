@@ -6,6 +6,9 @@
 package scenes;
 
 import java.awt.Component;
+import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.SwingUtilities;
@@ -18,12 +21,14 @@ import static scenes.SignUpScene.usr;
 public class SignInScene extends javax.swing.JPanel {
     
     //private User usr;
+    private SignUpScene sign;
     
     /**
      * Creates new form SignInScene
      */
     public SignInScene() {
         initComponents();
+        sign = null;
     }
 
     /**
@@ -134,7 +139,14 @@ public class SignInScene extends javax.swing.JPanel {
     private void signUpButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_signUpButtonActionPerformed
         SwingUtilities.invokeLater(new Runnable() {
             public void run() {
-                SignUpScene sign = new SignUpScene();
+                
+                
+                try {
+                    sign = new SignUpScene();
+                } catch (IOException ex) {
+                    Logger.getLogger(SignInScene.class.getName()).log(Level.SEVERE, null, ex);
+                }
+                
                 JFrame frame = new JFrame();
                 frame.getContentPane().add(sign);
                 frame.setResizable(false);

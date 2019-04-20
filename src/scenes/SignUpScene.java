@@ -39,10 +39,11 @@ public class SignUpScene extends javax.swing.JPanel {
     
     public static void usingFileWriter() throws IOException
     {
-        String fileContent = "Hello Learner !! Welcome to howtodoinjava.com.";
+        String fileContent = "Hello world ";
 
-        FileWriter fileWriter = new FileWriter("C:/Users/oscar neiva/Documents/SpaceExpress/data/test.csv");
+        FileWriter fileWriter = new FileWriter("C:/Users/oscar neiva/Documents/SpaceExpress/data/test.csv", true);
         fileWriter.write(fileContent);
+        fileWriter.write(System.lineSeparator());
         fileWriter.close();
     }
     
