@@ -8,7 +8,6 @@ package scenes;
 import java.awt.Component;
 import javax.swing.JOptionPane;
 import controllers.User;
-import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 
@@ -29,21 +28,22 @@ public class SignUpScene extends javax.swing.JPanel {
     /**
      * Creates new form SignUpScene
      */
-    public SignUpScene() {
-        filePath = "../data/users.csv";
-        try(FileWriter fileWriter = new FileWriter(filePath)) {  
-            String fileContent = "This is a sample text.";
-            System.out.print("passei");
-            fileWriter.write(fileContent);
-        } catch (IOException e) {
-            // exception handling
-        }
-        
-        
+    public SignUpScene() throws IOException {
         initComponents();
         name = "";
         email = "";
         password = "";
+        
+        usingFileWriter();
+    }
+    
+    public static void usingFileWriter() throws IOException
+    {
+        String fileContent = "Hello Learner !! Welcome to howtodoinjava.com.";
+
+        FileWriter fileWriter = new FileWriter("C:/Users/oscar neiva/Documents/SpaceExpress/data/test.csv");
+        fileWriter.write(fileContent);
+        fileWriter.close();
     }
     
     /**
