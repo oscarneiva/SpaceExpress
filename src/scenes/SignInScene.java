@@ -12,7 +12,6 @@ import java.util.logging.Logger;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.SwingUtilities;
-import static scenes.SignUpScene.usr;
 
 /**
  *
@@ -114,7 +113,7 @@ public class SignInScene extends javax.swing.JPanel {
     }//GEN-LAST:event_emailTextFieldActionPerformed
 
     private void confirmButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_confirmButtonActionPerformed
-        if((emailTextField.getText().equals(usr.getEmail()))
+        /*if((emailTextField.getText().equals(usr.getEmail()))
                 && (passwordTextField.getText().equals(usr.getPassword()))){
             
             // Create Profile Window
@@ -133,7 +132,7 @@ public class SignInScene extends javax.swing.JPanel {
         }else{
             Component frame = null;
             JOptionPane.showMessageDialog(frame,"Access denied.");
-        }
+        }*/
     }//GEN-LAST:event_confirmButtonActionPerformed
 
     private void signUpButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_signUpButtonActionPerformed

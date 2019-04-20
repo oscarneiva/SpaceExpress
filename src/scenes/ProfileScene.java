@@ -5,7 +5,6 @@
  */
 package scenes;
 
-import static scenes.SignUpScene.usr;
 //import controllers.User;
 
 /**
@@ -206,8 +205,8 @@ public class ProfileScene extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void readUserData(){
-        nameLabel.setText(usr.getName());
-        emailLabel.setText(usr.getEmail());
+        //nameLabel.setText(usr.getName());
+        //emailLabel.setText(usr.getEmail());
     }
     
     private void createButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_createButtonActionPerformed

@@ -8,7 +8,7 @@ package scenes;
 import java.awt.Component;
 import javax.swing.JOptionPane;
 import controllers.User;
-import java.io.FileWriter;
+import controllers.UserManager;
 import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -19,28 +19,14 @@ import java.util.logging.Logger;
  */
 public class SignUpScene extends javax.swing.JPanel {
     
-    public static User usr;
-    private String name;
-    private String email;
-    private String password;
+    private UserManager usrman;
     
     /**
      * Creates new form SignUpScene
      */
     public SignUpScene() throws IOException {
         initComponents();
-        name = "";
-        email = "";
-        password = "";
-    }
-    
-    public void createUser() throws IOException
-    {
-        String fileContent = name + "," + email + "," + password;
-        FileWriter fileWriter = new FileWriter("C:/Users/oscar neiva/Documents/SpaceExpress/data/test.csv", true);
-        fileWriter.write(fileContent);
-        fileWriter.write(System.lineSeparator());
-        fileWriter.close();
+        usrman = new UserManager();
     }
     
     /**
@@ -149,19 +135,17 @@ public class SignUpScene extends javax.swing.JPanel {
 
     private void confirmButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_confirmButtonActionPerformed
         if (passwordTextField.getText().equals(confirmPasswordTextField.getText())){
-            name = nameTextField.getText();
-            email = emailTextField.getText();
-            password = passwordTextField.getText();
-            usr = new User(name, email, password);
-            System.out.println("User with email: " + usr.getEmail() + "; and password: " 
-                    + usr.getPassword() + " created.");
             
-            //Create from CRUD
+            // Create from CRUD
             try {
-                createUser();
+                usrman.createUser(
+                    nameTextField.getText(),
+                    emailTextField.getText(), 
+                    passwordTextField.getText()
+                );
             } catch (IOException ex) {
                 Logger.getLogger(SignUpScene.class.getName()).log(Level.SEVERE, null, ex);
-            }
+            } 
         }else{
             Component frame = null;
             JOptionPane.showMessageDialog(frame,"The password doesn't match.");
