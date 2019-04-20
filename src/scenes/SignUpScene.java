@@ -10,6 +10,8 @@ import javax.swing.JOptionPane;
 import controllers.User;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -21,9 +23,6 @@ public class SignUpScene extends javax.swing.JPanel {
     private String name;
     private String email;
     private String password;
-    private String directory;
-    private String usersFile;
-    private String filePath;
     
     /**
      * Creates new form SignUpScene
@@ -33,14 +32,11 @@ public class SignUpScene extends javax.swing.JPanel {
         name = "";
         email = "";
         password = "";
-        
-        usingFileWriter();
     }
     
-    public static void usingFileWriter() throws IOException
+    public void createUser() throws IOException
     {
-        String fileContent = "Hello world ";
-
+        String fileContent = name + "," + email + "," + password;
         FileWriter fileWriter = new FileWriter("C:/Users/oscar neiva/Documents/SpaceExpress/data/test.csv", true);
         fileWriter.write(fileContent);
         fileWriter.write(System.lineSeparator());
@@ -152,7 +148,6 @@ public class SignUpScene extends javax.swing.JPanel {
     }//GEN-LAST:event_confirmPasswordTextFieldActionPerformed
 
     private void confirmButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_confirmButtonActionPerformed
-
         if (passwordTextField.getText().equals(confirmPasswordTextField.getText())){
             name = nameTextField.getText();
             email = emailTextField.getText();
@@ -160,6 +155,13 @@ public class SignUpScene extends javax.swing.JPanel {
             usr = new User(name, email, password);
             System.out.println("User with email: " + usr.getEmail() + "; and password: " 
                     + usr.getPassword() + " created.");
+            
+            //Create from CRUD
+            try {
+                createUser();
+            } catch (IOException ex) {
+                Logger.getLogger(SignUpScene.class.getName()).log(Level.SEVERE, null, ex);
+            }
         }else{
             Component frame = null;
             JOptionPane.showMessageDialog(frame,"The password doesn't match.");
