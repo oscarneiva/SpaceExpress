@@ -16,10 +16,10 @@ public class UserManager {
     private User usr;
     
     public UserManager(){
+        // Constructor read all objects and creates objects? 
     }
     
-    public void createUser(String n, String e, String psw) throws IOException
-    {
+    public void createUser(String n, String e, String psw) throws IOException{
         usr = new User(n, e, psw);
         String fileContent = usr.getName() + "," + usr.getEmail() + "," + usr.getPassword();
         FileWriter fileWriter = new FileWriter("C:/Users/oscar neiva/Documents/SpaceExpress/data/test.csv", true);
@@ -31,5 +31,9 @@ public class UserManager {
         System.out.println( "User with email: " + usr.getEmail() + 
                             "; and password: "  + usr.getPassword() + 
                             " created.");
+    }
+    
+    public void readUser(String e, String psw) throws IOException{
+        // Search for a user with a specific email and password.
     }
 }
