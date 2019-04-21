@@ -5,13 +5,14 @@
  */
 package scenes;
 
-import java.awt.Component;
 import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JFrame;
-import javax.swing.JOptionPane;
 import javax.swing.SwingUtilities;
+import controllers.UserManager;
+import java.awt.Component;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -113,8 +114,9 @@ public class SignInScene extends javax.swing.JPanel {
     }//GEN-LAST:event_emailTextFieldActionPerformed
 
     private void confirmButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_confirmButtonActionPerformed
-        /*if((emailTextField.getText().equals(usr.getEmail()))
-                && (passwordTextField.getText().equals(usr.getPassword()))){
+        UserManager userManager = new UserManager();
+        
+        if(userManager.readUser(emailTextField.getText(), passwordTextField.getText())){
             
             // Create Profile Window
             SwingUtilities.invokeLater(new Runnable() {
@@ -132,13 +134,12 @@ public class SignInScene extends javax.swing.JPanel {
         }else{
             Component frame = null;
             JOptionPane.showMessageDialog(frame,"Access denied.");
-        }*/
+        }
     }//GEN-LAST:event_confirmButtonActionPerformed
 
     private void signUpButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_signUpButtonActionPerformed
         SwingUtilities.invokeLater(new Runnable() {
             public void run() {
-                
                 
                 try {
                     sign = new SignUpScene();

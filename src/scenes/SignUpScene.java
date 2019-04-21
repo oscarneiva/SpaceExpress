@@ -7,7 +7,6 @@ package scenes;
 
 import java.awt.Component;
 import javax.swing.JOptionPane;
-import controllers.User;
 import controllers.UserManager;
 import java.io.IOException;
 import java.util.logging.Level;
@@ -19,14 +18,13 @@ import java.util.logging.Logger;
  */
 public class SignUpScene extends javax.swing.JPanel {
     
-    private UserManager usrman;
+    private UserManager userManager;
     
     /**
      * Creates new form SignUpScene
      */
     public SignUpScene() throws IOException {
         initComponents();
-        usrman = new UserManager();
     }
     
     /**
@@ -136,9 +134,11 @@ public class SignUpScene extends javax.swing.JPanel {
     private void confirmButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_confirmButtonActionPerformed
         if (passwordTextField.getText().equals(confirmPasswordTextField.getText())){
             
-            // Create from CRUD
+            // Create operation from CRUD
+            userManager = new UserManager();
+            
             try {
-                usrman.createUser(
+                userManager.createUser(
                     nameTextField.getText(),
                     emailTextField.getText(), 
                     passwordTextField.getText()

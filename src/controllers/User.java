@@ -12,7 +12,6 @@ package controllers;
 public class User {
     
     // Fields
-    private int id;
     private String name;
     private String email;
     private String password;
@@ -24,15 +23,7 @@ public class User {
         this.password = psw;
     }
     
-    // Accessors and Mutators
-    public int getId(){
-        return id;
-    }
-    
-    public void setId(int i){
-        this.id = i;
-    }
-    
+    // Accessors and Mutators 
     public String getName(){
         return name;
     }

@@ -12,26 +12,16 @@ package controllers;
  */
 public class Order {
     // Fields
-    private int id;
     private String customer;
     private Item[] items;
     
     // Constructor
-    public Order(int i, String c, Item[] items){
-        this.id = i;
+    public Order(String c, Item[] items){
         this.customer = c;
         this.items = items;
     }
     
-    // Accessors and Mutators
-    public int getId(){
-        return id;
-    }
-    
-    public void setId(int i){
-        this.id = i;
-    }
-    
+    // Accessors and Mutators  
     public String getCustumer(){
         return customer;
     }
