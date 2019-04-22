@@ -21,7 +21,7 @@ import javax.swing.JOptionPane;
 public class SignInScene extends javax.swing.JPanel {
     
     //private User usr;
-    private SignUpScene sign;
+    private SignUpScene signUpScene;
     private UserManager userManager;
     
     /**
@@ -29,7 +29,7 @@ public class SignInScene extends javax.swing.JPanel {
      */
     public SignInScene() {
         initComponents();
-        sign = null;
+        signUpScene = null;
         
         // Initialize userManager
         try {
@@ -123,7 +123,7 @@ public class SignInScene extends javax.swing.JPanel {
 
     private void confirmButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_confirmButtonActionPerformed
 
-        if(userManager.readUser(emailTextField.getText(), passwordTextField.getText())){
+        if(userManager.readUser(emailTextField.getText(), passwordTextField.getText()) != null ){
             
             // Create Profile Window
             SwingUtilities.invokeLater(new Runnable() {
@@ -149,13 +149,13 @@ public class SignInScene extends javax.swing.JPanel {
             public void run() {
                 
                 try {
-                    sign = new SignUpScene();
+                    signUpScene = new SignUpScene();
                 } catch (IOException ex) {
                     Logger.getLogger(SignInScene.class.getName()).log(Level.SEVERE, null, ex);
                 }
                 
                 JFrame frame = new JFrame();
-                frame.getContentPane().add(sign);
+                frame.getContentPane().add(signUpScene);
                 frame.setResizable(false);
                 frame.pack();
                 frame.setLocationRelativeTo(null);

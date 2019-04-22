@@ -5,9 +5,7 @@
  */
 package scenes;
 
-//import controllers.User;
-
-import controllers.User;
+import controllers.UserManager;
 
 
 /**
@@ -16,14 +14,14 @@ import controllers.User;
  */
 public class ProfileScene extends javax.swing.JPanel {
 
-    private String[] orders;
-    private User user;
+    private SignInScene signInScene;
+    private UserManager userManager;
     
     /**
      * Creates new form ProfileScene
      */
     
-    public ProfileScene() {
+    public ProfileScene(){
         initComponents();
         loadUser();
     }
@@ -208,6 +206,7 @@ public class ProfileScene extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void loadUser(){
+        //userManager.readUser( signInScene.emailTextField.getText(), TOOL_TIP_TEXT_KEY);
         //nameLabel.setText(usr.getName());
         //emailLabel.setText(usr.getEmail());
     }

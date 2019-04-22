@@ -40,7 +40,7 @@ public class UserManager {
                             " created.");
     }
     
-    // CRUD - Read all the users to initialize program.
+    // CRUD - Read all the users when initializing the program.
     public void readUser() throws IOException{
         FileReader fileReader = new FileReader("./data/users.csv");
         BufferedReader bufferedReader = new BufferedReader(fileReader);
@@ -56,13 +56,13 @@ public class UserManager {
     }
     
     // CRUD - Read email and password for login
-    public boolean readUser(String email, String password){
+    public User readUser(String email, String password){
         for(int i = 0; i < users.size(); i++) {
             // Always use equals() when comparing strings in JAVA!
             if( users.get(i).getEmail().equals(email) && users.get(i).getPassword().equals(password) ){
-                return true;
+                return users.get(i);
             }
         }
-        return false;
+        return null;
     }
 }
