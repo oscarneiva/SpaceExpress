@@ -56,13 +56,13 @@ public class UserManager {
     }
     
     // CRUD - Read email and password for login
-    public User readUser(String email, String password){
+    public boolean readUser(String email, String password){
         for(int i = 0; i < users.size(); i++) {
             // Always use equals() when comparing strings in JAVA!
             if( users.get(i).getEmail().equals(email) && users.get(i).getPassword().equals(password) ){
-                return users.get(i);
+                return true;
             }
         }
-        return null;
+        return false;
     }
 }

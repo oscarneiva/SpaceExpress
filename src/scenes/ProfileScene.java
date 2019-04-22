@@ -5,7 +5,9 @@
  */
 package scenes;
 
+import controllers.User;
 import controllers.UserManager;
+import java.io.IOException;
 
 
 /**
@@ -13,17 +15,19 @@ import controllers.UserManager;
  * @author oscar neiva
  */
 public class ProfileScene extends javax.swing.JPanel {
-
-    private SignInScene signInScene;
-    private UserManager userManager;
+    UserManager userManager;
+    User user;
     
     /**
      * Creates new form ProfileScene
      */
     
-    public ProfileScene(){
+    public ProfileScene() throws IOException{
         initComponents();
         loadUser();
+        
+        userManager = new UserManager();
+        user = new User();
     }
 
     /**
@@ -206,9 +210,25 @@ public class ProfileScene extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void loadUser(){
-        //userManager.readUser( signInScene.emailTextField.getText(), TOOL_TIP_TEXT_KEY);
-        //nameLabel.setText(usr.getName());
-        //emailLabel.setText(usr.getEmail());
+        //System.out.println(signInScene.getEmailTextField().getText());
+        /*nameLabel.setText(
+            userManager.readUser(   
+                signInScene.getEmailTextField().getText(), 
+                signInScene.getPasswordTextField().getText()
+            ).getName()
+        );
+       
+        emailLabel.setText(
+            userManager.readUser(   
+                signInScene.getEmailTextField().getText(), 
+                signInScene.getPasswordTextField().getText()
+            ).getEmail()
+        );*/
+        
+        //user.equals(userManager.getActiveUser());
+        //nameLabel.setText(user.getName());
+        
+        //emailLabel.setText(activeUser.);
     }
     
     private void createButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_createButtonActionPerformed

@@ -20,9 +20,9 @@ import javax.swing.JOptionPane;
  */
 public class SignInScene extends javax.swing.JPanel {
     
-    //private User usr;
     private SignUpScene signUpScene;
     private UserManager userManager;
+    private ProfileScene profile;
     
     /**
      * Creates new form SignInScene
@@ -31,14 +31,13 @@ public class SignInScene extends javax.swing.JPanel {
         initComponents();
         signUpScene = null;
         
-        // Initialize userManager
         try {
             userManager = new UserManager();
         } catch (IOException ex) {
             Logger.getLogger(SignInScene.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -123,12 +122,17 @@ public class SignInScene extends javax.swing.JPanel {
 
     private void confirmButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_confirmButtonActionPerformed
 
-        if(userManager.readUser(emailTextField.getText(), passwordTextField.getText()) != null ){
-            
+        if(userManager.readUser(emailTextField.getText(), passwordTextField.getText())){  
             // Create Profile Window
             SwingUtilities.invokeLater(new Runnable() {
                 public void run() {
-                    ProfileScene profile = new ProfileScene();
+                    
+                    try {
+                        profile = new ProfileScene();
+                    } catch (IOException ex) {
+                        Logger.getLogger(SignInScene.class.getName()).log(Level.SEVERE, null, ex);
+                    }
+                    
                     JFrame frame = new JFrame();
                     frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
                     frame.getContentPane().add(profile);

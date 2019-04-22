@@ -23,6 +23,9 @@ public class User {
         this.password = psw;
     }
     
+    public User(){
+    }
+    
     // Accessors and Mutators 
     public String getName(){
         return name;
