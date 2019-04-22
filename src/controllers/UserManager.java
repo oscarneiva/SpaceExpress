@@ -9,16 +9,20 @@ import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.util.LinkedList;
 
 /**
  *
  * @author oscar neiva
  */
 public class UserManager {
+    private LinkedList<User> users;
     private User user;
     
-    public UserManager(){
+    public UserManager() throws IOException{
         // Load all the users in the RAM memory
+        users = new LinkedList<User>();
+        readUser();
     }
     
     // CRUD - Create a user on the signup screen.
@@ -45,6 +49,7 @@ public class UserManager {
         while((fileContent = bufferedReader.readLine()) != null) { 
             String[] fileData = fileContent.split(","); 
             user = new User(fileData[0], fileData[1], fileData[2]);
+            users.add(user);
         }
             
         fileReader.close();
@@ -52,9 +57,9 @@ public class UserManager {
     
     // CRUD - Read email and password for login
     public boolean readUser(String email, String password){
-        while(user != null) { 
-            System.out.println(user.getEmail());
-            if(email == user.getEmail() && password == user.getPassword()){
+        for(int i = 0; i < users.size(); i++) {
+            // Always use equals() when comparing strings in JAVA!
+            if( users.get(i).getEmail().equals(email) && users.get(i).getPassword().equals(password) ){
                 return true;
             }
         }

@@ -25,6 +25,13 @@ public class SignUpScene extends javax.swing.JPanel {
      */
     public SignUpScene() throws IOException {
         initComponents();
+        
+        // Initialize userManager
+        try {
+            userManager = new UserManager();
+        } catch (IOException ex) {
+            Logger.getLogger(SignInScene.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
     
     /**
@@ -133,15 +140,11 @@ public class SignUpScene extends javax.swing.JPanel {
 
     private void confirmButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_confirmButtonActionPerformed
         if (passwordTextField.getText().equals(confirmPasswordTextField.getText())){
-            
-            // Create operation from CRUD
-            userManager = new UserManager();
-            
             try {
                 userManager.createUser(
-                    nameTextField.getText(),
-                    emailTextField.getText(), 
-                    passwordTextField.getText()
+                        nameTextField.getText(),
+                        emailTextField.getText(),
+                        passwordTextField.getText()
                 );
             } catch (IOException ex) {
                 Logger.getLogger(SignUpScene.class.getName()).log(Level.SEVERE, null, ex);

@@ -22,6 +22,7 @@ public class SignInScene extends javax.swing.JPanel {
     
     //private User usr;
     private SignUpScene sign;
+    private UserManager userManager;
     
     /**
      * Creates new form SignInScene
@@ -29,6 +30,13 @@ public class SignInScene extends javax.swing.JPanel {
     public SignInScene() {
         initComponents();
         sign = null;
+        
+        // Initialize userManager
+        try {
+            userManager = new UserManager();
+        } catch (IOException ex) {
+            Logger.getLogger(SignInScene.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
     /**
@@ -114,8 +122,7 @@ public class SignInScene extends javax.swing.JPanel {
     }//GEN-LAST:event_emailTextFieldActionPerformed
 
     private void confirmButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_confirmButtonActionPerformed
-        UserManager userManager = new UserManager();
-        
+
         if(userManager.readUser(emailTextField.getText(), passwordTextField.getText())){
             
             // Create Profile Window

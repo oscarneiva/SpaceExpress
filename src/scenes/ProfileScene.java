@@ -7,6 +7,9 @@ package scenes;
 
 //import controllers.User;
 
+import controllers.User;
+
+
 /**
  *
  * @author oscar neiva
@@ -14,7 +17,7 @@ package scenes;
 public class ProfileScene extends javax.swing.JPanel {
 
     private String[] orders;
-    //private User usr;
+    private User user;
     
     /**
      * Creates new form ProfileScene
@@ -22,7 +25,7 @@ public class ProfileScene extends javax.swing.JPanel {
     
     public ProfileScene() {
         initComponents();
-        readUserData();
+        loadUser();
     }
 
     /**
@@ -204,7 +207,7 @@ public class ProfileScene extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void readUserData(){
+    private void loadUser(){
         //nameLabel.setText(usr.getName());
         //emailLabel.setText(usr.getEmail());
     }
