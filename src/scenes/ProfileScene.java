@@ -23,7 +23,7 @@ public class ProfileScene extends javax.swing.JPanel {
     
     public ProfileScene() throws IOException{
         initComponents();
-        loadUser();
+        loadUserData();
         
         userManager = new UserManager();
     }
@@ -207,7 +207,7 @@ public class ProfileScene extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void loadUser(){
+    private void loadUserData(){
         nameLabel.setText(activeUser.getName());
         emailLabel.setText(activeUser.getEmail());
     }
@@ -225,7 +225,9 @@ public class ProfileScene extends javax.swing.JPanel {
     }//GEN-LAST:event_updateButtonActionPerformed
 
     private void readButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_readButtonActionPerformed
-
+        for(int i=0; i<10; i++){
+            orderList.add("coleguinha", i);
+        }
     }//GEN-LAST:event_readButtonActionPerformed
 
 

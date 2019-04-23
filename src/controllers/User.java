@@ -23,6 +23,7 @@ public class User {
         this.password = psw;
     }
     
+    // Constructor
     public User(){
     }
     
