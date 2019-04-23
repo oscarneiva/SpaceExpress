@@ -13,6 +13,7 @@ public class Item {
     
     // Fields
     private String name;
+    private String[] parts;
     private float weight;
     
     // Constructor
@@ -28,6 +29,14 @@ public class Item {
     
     public void setName(String n){
         this.name = n;
+    }
+    
+    public String[] getParts(){
+        return parts;
+    }
+    
+    public void setParts(String[] p){
+        this.parts = p;
     }
     
     public float getWeight(){
