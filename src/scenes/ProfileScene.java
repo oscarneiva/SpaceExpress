@@ -5,8 +5,8 @@
  */
 package scenes;
 
-import controllers.User;
 import controllers.UserManager;
+import static controllers.UserManager.activeUser;
 import java.io.IOException;
 
 
@@ -16,7 +16,6 @@ import java.io.IOException;
  */
 public class ProfileScene extends javax.swing.JPanel {
     UserManager userManager;
-    User user;
     
     /**
      * Creates new form ProfileScene
@@ -27,7 +26,6 @@ public class ProfileScene extends javax.swing.JPanel {
         loadUser();
         
         userManager = new UserManager();
-        user = new User();
     }
 
     /**
@@ -210,25 +208,8 @@ public class ProfileScene extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void loadUser(){
-        //System.out.println(signInScene.getEmailTextField().getText());
-        /*nameLabel.setText(
-            userManager.readUser(   
-                signInScene.getEmailTextField().getText(), 
-                signInScene.getPasswordTextField().getText()
-            ).getName()
-        );
-       
-        emailLabel.setText(
-            userManager.readUser(   
-                signInScene.getEmailTextField().getText(), 
-                signInScene.getPasswordTextField().getText()
-            ).getEmail()
-        );*/
-        
-        //user.equals(userManager.getActiveUser());
-        //nameLabel.setText(user.getName());
-        
-        //emailLabel.setText(activeUser.);
+        nameLabel.setText(activeUser.getName());
+        emailLabel.setText(activeUser.getEmail());
     }
     
     private void createButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_createButtonActionPerformed

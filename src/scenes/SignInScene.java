@@ -122,29 +122,33 @@ public class SignInScene extends javax.swing.JPanel {
 
     private void confirmButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_confirmButtonActionPerformed
 
-        if(userManager.readUser(emailTextField.getText(), passwordTextField.getText())){  
-            // Create Profile Window
-            SwingUtilities.invokeLater(new Runnable() {
-                public void run() {
-                    
-                    try {
-                        profile = new ProfileScene();
-                    } catch (IOException ex) {
-                        Logger.getLogger(SignInScene.class.getName()).log(Level.SEVERE, null, ex);
+        try {
+            if(userManager.readUser(emailTextField.getText(), passwordTextField.getText())){
+                // Create Profile Window
+                SwingUtilities.invokeLater(new Runnable() {
+                    public void run() {
+                        
+                        try {
+                            profile = new ProfileScene();
+                        } catch (IOException ex) {
+                            Logger.getLogger(SignInScene.class.getName()).log(Level.SEVERE, null, ex);
+                        }
+                        
+                        JFrame frame = new JFrame();
+                        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+                        frame.getContentPane().add(profile);
+                        frame.setResizable(false);
+                        frame.setSize(1920, 1080);
+                        frame.setLocationRelativeTo(null);
+                        frame.setVisible(true);
                     }
-                    
-                    JFrame frame = new JFrame();
-                    frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-                    frame.getContentPane().add(profile);
-                    frame.setResizable(false);
-                    frame.setSize(1920, 1080);
-                    frame.setLocationRelativeTo(null);
-                    frame.setVisible(true);
-                }
-            });
-        }else{
-            Component frame = null;
-            JOptionPane.showMessageDialog(frame,"Access denied.");
+                });
+            }else{
+                Component frame = null;
+                JOptionPane.showMessageDialog(frame,"Access denied.");
+            }
+        } catch (IOException ex) {
+            Logger.getLogger(SignInScene.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_confirmButtonActionPerformed
 
