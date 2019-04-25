@@ -23,15 +23,11 @@ public class SignUpScene extends javax.swing.JPanel {
     /**
      * Creates new form SignUpScene
      */
-    public SignUpScene() throws IOException {
+    public SignUpScene(){
         initComponents();
         
         // Initialize userManager
-        try {
-            userManager = new UserManager();
-        } catch (IOException ex) {
-            Logger.getLogger(SignInScene.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        userManager = new UserManager();
     }
     
     /**

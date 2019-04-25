@@ -22,7 +22,7 @@ public class UserManager {
     private User user;
     
     
-    public UserManager() throws IOException{
+    public UserManager(){
         users = new LinkedList<User>();
     }
     

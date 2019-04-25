@@ -21,7 +21,7 @@ public class ProfileScene extends javax.swing.JPanel {
      * Creates new form ProfileScene
      */
     
-    public ProfileScene() throws IOException{
+    public ProfileScene(){
         initComponents();
         loadUserData();
         

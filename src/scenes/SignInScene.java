@@ -30,12 +30,7 @@ public class SignInScene extends javax.swing.JPanel {
     public SignInScene() {
         initComponents();
         signUpScene = null;
-        
-        try {
-            userManager = new UserManager();
-        } catch (IOException ex) {
-            Logger.getLogger(SignInScene.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        userManager = new UserManager();
     }
     
     /**
@@ -126,14 +121,8 @@ public class SignInScene extends javax.swing.JPanel {
             if(userManager.readUser(emailTextField.getText(), passwordTextField.getText())){
                 // Create Profile Window
                 SwingUtilities.invokeLater(new Runnable() {
-                    public void run() {
-                        
-                        try {
-                            profile = new ProfileScene();
-                        } catch (IOException ex) {
-                            Logger.getLogger(SignInScene.class.getName()).log(Level.SEVERE, null, ex);
-                        }
-                        
+                    public void run() { 
+                        profile = new ProfileScene();
                         JFrame frame = new JFrame();
                         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
                         frame.getContentPane().add(profile);
@@ -155,13 +144,7 @@ public class SignInScene extends javax.swing.JPanel {
     private void signUpButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_signUpButtonActionPerformed
         SwingUtilities.invokeLater(new Runnable() {
             public void run() {
-                
-                try {
-                    signUpScene = new SignUpScene();
-                } catch (IOException ex) {
-                    Logger.getLogger(SignInScene.class.getName()).log(Level.SEVERE, null, ex);
-                }
-                
+                signUpScene = new SignUpScene();
                 JFrame frame = new JFrame();
                 frame.getContentPane().add(signUpScene);
                 frame.setResizable(false);
