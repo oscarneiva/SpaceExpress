@@ -5,9 +5,12 @@
  */
 package scenes;
 
+import controllers.OrderManager;
 import controllers.UserManager;
 import static controllers.UserManager.activeUser;
 import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 
 /**
@@ -16,6 +19,7 @@ import java.io.IOException;
  */
 public class ProfileScene extends javax.swing.JPanel {
     UserManager userManager;
+    OrderManager orderManager;
     
     /**
      * Creates new form ProfileScene
@@ -225,6 +229,13 @@ public class ProfileScene extends javax.swing.JPanel {
     }//GEN-LAST:event_updateButtonActionPerformed
 
     private void readButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_readButtonActionPerformed
+        orderManager = new OrderManager();
+        try {
+            orderManager.loadAllOrders();
+        } catch (IOException ex) {
+            Logger.getLogger(ProfileScene.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
         for(int i=0; i<10; i++){
             orderList.add("coleguinha", i);
         }
