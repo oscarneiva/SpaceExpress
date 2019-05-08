@@ -127,7 +127,7 @@ public class SignInScene extends javax.swing.JPanel {
                         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
                         frame.getContentPane().add(profile);
                         frame.setResizable(false);
-                        frame.setSize(1920, 1080);
+                        frame.setSize(960, 540);
                         frame.setLocationRelativeTo(null);
                         frame.setVisible(true);
                     }
