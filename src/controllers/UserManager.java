@@ -77,6 +77,7 @@ public class UserManager {
         return false;
     }
     
+    // CRUD - Read active user
     public String readUser() throws FileNotFoundException, IOException{
         FileReader fileReader = new FileReader("./data/userslog.csv");
         BufferedReader bufferedReader = new BufferedReader(fileReader);
