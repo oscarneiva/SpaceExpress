@@ -155,13 +155,12 @@ public class ProfileScene extends javax.swing.JPanel {
         orderManager = new OrderManager();
         try {
             orderManager.loadAllOrders();
+            //orderList.add(orderManager.loadAllOrders());
         } catch (IOException ex) {
             Logger.getLogger(ProfileScene.class.getName()).log(Level.SEVERE, null, ex);
         }
         
-        for(int i=0; i<10; i++){
-            orderList.add("coleguinha", i);
-        }
+        
     }//GEN-LAST:event_readButtonActionPerformed
 
 

@@ -11,6 +11,7 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.util.LinkedList;
 
+
 /**
  *
  * @author oscar neiva
@@ -31,13 +32,9 @@ public class OrderManager {
         String fileContent; 
         while((fileContent = bufferedReader.readLine()) != null) { 
             String[] fileData = fileContent.split(",");
-            String[] fileArray = fileData[1].split("[,]");
-            
-            System.out.print(fileArray);
-            //order = new Order(fileData[0], fileData[1]);
+            //order = new Order(fileData[0], null);
             //orders.add(order);
         }
-            
         fileReader.close();
     }
 }

@@ -1,6 +1,6 @@
 customer,items
-nasa,[humble,spaceshuttle]
-jaxa,[kibo]
-csa,[canadarm]
-roscosmo,[soyuz,buran]
-spacex,[cheese,tesla]
+nasa,humble,spaceshuttle
+jaxa,kibo
+csa,canadarm
+roscosmo,soyuz,buran
+spacex,cheese,tesla
