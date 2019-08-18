@@ -29,7 +29,7 @@ public class OrderManager {
     
     // Load all the items and orders in RAM when initializing the program.
     public LinkedList<Item> loadAllOrders() throws IOException{
-        FileReader fileReader = new FileReader("./data/orders.csv");
+        FileReader fileReader = new FileReader("./data/items.csv");
         BufferedReader bufferedReader = new BufferedReader(fileReader);
         
         String fileContent; 
@@ -37,7 +37,6 @@ public class OrderManager {
             String[] fileData = fileContent.split(",");
             item = new Item(fileData[0], fileData[1]);
             items.add(item);
-            System.out.println(items);
         }
         fileReader.close();
         

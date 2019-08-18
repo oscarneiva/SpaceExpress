@@ -9,9 +9,9 @@ import controllers.OrderManager;
 import controllers.UserManager;
 import static controllers.UserManager.activeUser;
 import java.io.IOException;
-import java.util.LinkedList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+
 
 
 /**
@@ -19,8 +19,8 @@ import java.util.logging.Logger;
  * @author oscar neiva
  */
 public class ProfileScene extends javax.swing.JPanel {
-    UserManager userManager;
-    OrderManager orderManager;
+    private UserManager userManager;
+    private OrderManager orderManager;
     
     /**
      * Creates new form ProfileScene
@@ -31,7 +31,6 @@ public class ProfileScene extends javax.swing.JPanel {
         loadUserData();
         
         userManager = new UserManager();
-        
     }
 
     /**
@@ -155,9 +154,9 @@ public class ProfileScene extends javax.swing.JPanel {
 
     private void readButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_readButtonActionPerformed
         orderManager = new OrderManager();
-        try { 
-            orderManager.loadAllOrders();
-            //orderList.add(orderManager.loadAllOrders());
+        try {
+            for(int i = 0; i <= orderManager.loadAllOrders().size(); i++)
+                orderList.add( orderManager.loadAllOrders().get(i).getName() );
         } catch (IOException ex) {
             Logger.getLogger(ProfileScene.class.getName()).log(Level.SEVERE, null, ex);
         } 
