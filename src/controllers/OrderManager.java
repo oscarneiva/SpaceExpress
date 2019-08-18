@@ -6,6 +6,7 @@
 package controllers;
 
 import modules.Order;
+import modules.Item;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
@@ -18,23 +19,28 @@ import java.util.LinkedList;
  */
 public class OrderManager {
     private Order order;
+    private Item item;
     private LinkedList<Order> orders;
+    private LinkedList<Item> items;
     
     public OrderManager(){
-    
+        items = new LinkedList<Item>();
     }
     
-    // Load all the users in RAM when initializing the program.
-    public void loadAllOrders() throws IOException{
+    // Load all the items and orders in RAM when initializing the program.
+    public LinkedList<Item> loadAllOrders() throws IOException{
         FileReader fileReader = new FileReader("./data/orders.csv");
         BufferedReader bufferedReader = new BufferedReader(fileReader);
         
         String fileContent; 
         while((fileContent = bufferedReader.readLine()) != null) { 
             String[] fileData = fileContent.split(",");
-            //order = new Order(fileData[0], null);
-            //orders.add(order);
+            item = new Item(fileData[0], fileData[1]);
+            items.add(item);
+            System.out.println(items);
         }
         fileReader.close();
+        
+        return items;
     }
 }

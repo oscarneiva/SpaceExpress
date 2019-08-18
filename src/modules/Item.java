@@ -14,10 +14,10 @@ public class Item {
     // Fields
     private String name;
     private String[] parts;
-    private float weight;
+    private String weight;
     
     // Constructor
-    public Item(String n, float w){
+    public Item(String n, String w){
         this.name = n;
         this.weight = w;
     }
@@ -39,11 +39,11 @@ public class Item {
         this.parts = p;
     }
     
-    public float getWeight(){
+    public String getWeight(){
         return weight;
     }
     
-    public void setWeight(float w){
+    public void setWeight(String w){
         this.weight = w;
     }
 }
